@@ -19,6 +19,9 @@ export class UserComponent {
     return 'assets/users/' + this.selectedUser().avatar;
   }
 
+  //or..
+  //imagePath = computed(() => 'assets/users/' + this.selectedUser().avatar)
+
   onSelectUser() {
     console.log(`Clicked ${this.clickCounter} times! New User ${this.selectedUser.name}`)
     this.clickCounter+=1;
