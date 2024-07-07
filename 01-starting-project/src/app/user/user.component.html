@@ -1,9 +1,9 @@
 <div>
     <button (click)="onSelectUser()">
         <img 
-            [src]="imagePath" 
-            [alt]="name"
+            [src]="imagePath()" 
+            [alt]="name()"
         />
-        <div [textContent]="name"></div>
+        <div [textContent]="name()"></div>
     </button>
 </div>

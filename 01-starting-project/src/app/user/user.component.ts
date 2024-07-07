@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, input, computed } from '@angular/core'; //Uppercase 'Input' is a decorator, 'input' is a function.
 import { DUMMY_USERS } from '../dummy-users';
 
 let randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
@@ -11,12 +11,25 @@ let randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
   styleUrl: './user.component.css'
 })
 export class UserComponent {
-  @Input() avatar!: string; //Using a "!" becasue we know that we're going to set 'avatar' in the html
-  @Input() name!: string; 
+
+  //DIFFERENT INPUT SYNTAX:
+  //@Input({required: true}) avatar!: string; //Using a "!" becasue we know that we're going to set 'avatar' in the html
+  //@Input({required: true}) name!: string; 
   
-  get imagePath() {
-    return 'assets/users/' + this.avatar;
-  }
+  //avatar = input<string>('Avatar Default Value Here');
+  //can also use:
+  avatar = input.required<string>(); //Similar to using '@Input' 
+  name = input.required<string>(); //Similar to using '@Input' 
+
+  
+  //Abandon getter in favor of the 'Computed' Function
+  // get imagePath() {
+  //   return 'assets/users/' + this.avatar;
+  // }
+  imagePath = computed(() => {
+    return 'assets/users/' + this.avatar(); 
+  })
+
   
   onSelectUser() { }
 }
