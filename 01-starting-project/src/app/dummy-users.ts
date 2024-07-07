@@ -16,7 +16,7 @@ export const DUMMY_USERS = [
     },
     {
       id: 'u4',
-      fullName: 'David Miller',
+      fullName: 'Davidentifyer Miller',
       avatar: 'user-4.jpg',
     },
     {
