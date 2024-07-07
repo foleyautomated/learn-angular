@@ -1,4 +1,4 @@
-import { Component , signal} from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { DUMMY_USERS } from '../dummy-users';
 
 let randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
@@ -11,21 +11,12 @@ let randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
   styleUrl: './user.component.css'
 })
 export class UserComponent {
-  selectedUser = signal(DUMMY_USERS[randomIndex]);
-
-  clickCounter = 1;
-
+  @Input() avatar!: string; //Using a "!" becasue we know that we're going to set 'avatar' in the html
+  @Input() name!: string; 
+  
   get imagePath() {
-    return 'assets/users/' + this.selectedUser().avatar;
+    return 'assets/users/' + this.avatar;
   }
-
-  //or..
-  //imagePath = computed(() => 'assets/users/' + this.selectedUser().avatar)
-
-  onSelectUser() {
-    console.log(`Clicked ${this.clickCounter} times! New User ${this.selectedUser.name}`)
-    this.clickCounter+=1;
-    randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
-    this.selectedUser.set(DUMMY_USERS[randomIndex])
-  }
+  
+  onSelectUser() { }
 }

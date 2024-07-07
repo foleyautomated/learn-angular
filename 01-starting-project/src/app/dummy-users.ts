@@ -1,32 +1,32 @@
 export const DUMMY_USERS = [
     {
       id: 'u1',
-      name: 'Jasmine Washington',
+      fullName: 'Jasmine Washington',
       avatar: 'user-1.jpg',
     },
     {
       id: 'u2',
-      name: 'Emily Thompson',
+      fullName: 'Emily Thompson',
       avatar: 'user-2.jpg',
     },
     {
       id: 'u3',
-      name: 'Marcus Johnson',
+      fullName: 'Marcus Johnson',
       avatar: 'user-3.jpg',
     },
     {
       id: 'u4',
-      name: 'David Miller',
+      fullName: 'David Miller',
       avatar: 'user-4.jpg',
     },
     {
       id: 'u5',
-      name: 'Priya Patel',
+      fullName: 'Priya Patel',
       avatar: 'user-5.jpg',
     },
     {
       id: 'u6',
-      name: 'Arjun Singh',
+      fullName: 'Arjun Singh',
       avatar: 'user-6.jpg',
     },
   ];
