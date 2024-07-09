@@ -14,6 +14,7 @@
         [id]="users[1].id"
         [avatar]="users[1].avatar"
         [name]="users[1].fullName"
+        (selectEventEmitter)="onSelectUser($event)"
       />
     </li>
     <li>
@@ -21,6 +22,7 @@
         [id]="users[2].id"
         [avatar]="users[2].avatar"
         [name]="users[2].fullName"
+        (selectEventEmitter)="onSelectUser($event)"
       />
     </li>
     <li>
@@ -28,7 +30,9 @@
         [id]="users[3].id"
         [avatar]="users[3].avatar"
         [name]="users[3].fullName"
+        (selectEventEmitter)="onSelectUser($event)"
       />
     </li>
   </ul>
+  <app-task [fullName]="selectedUser.taskDescription"/>
 </main>
