@@ -9,7 +9,9 @@ import { DUMMY_USERS } from '../dummy-users';
   styleUrl: './task.component.css'
 })
 export class TaskComponent {
-  @Input({required: true}) fullName!: string;
+  @Input() fullName?: string;
+  //Can also use:
+  //@Input() name: string | undefined
 
   onSelectUser(id: string) {
     console.log(`Task Component Triggered: ${id}`)

@@ -34,5 +34,5 @@
       />
     </li>
   </ul>
-  <app-task [fullName]="selectedUser.taskDescription"/>
+  <app-task [fullName]="selectedUser ? selectedUser.taskDescription : 'Missing User'"/>
 </main>
