@@ -3,7 +3,6 @@ export const DUMMY_USERS = [
       id: 'u1',
       fullName: 'Jasmine Washington',
       avatar: 'user-1.jpg',
-      index: 0,
       taskDescription: "Cut down the cherry tree"
     },
     {
