@@ -1,30 +1,25 @@
 <app-header />
+
 <main>
   <ul id="users">
-    <li>
-      <app-user
-        [user]="users[0]"
-        (selectEventEmitter)="onSelectUser($event)"
-      />
-    </li>
-    <li>
-      <app-user
-        [user]="users[1]"
-        (selectEventEmitter)="onSelectUser($event)"
-      />
-    </li>
-    <li>
-      <app-user
-        [user]="users[2]"
-        (selectEventEmitter)="onSelectUser($event)"
-      />
-    </li>
-    <li>
-      <app-user
-        [user]="users[3]"
-        (selectEventEmitter)="onSelectUser($event)"
-      />
-    </li>
+    @for (user of users; track user.id) {
+      <li>
+        <app-user
+          [selected]="user.id == selectedUser.id"
+          [user]="user"
+          (selectEventEmitter)="onSelectUser($event)"
+        />
+      </li>
+    }
   </ul>
-  <app-task [fullName]="selectedUser ? selectedUser.taskDescription : 'Missing User'"/>
+
+  @if(selectedUser) {
+    <app-tasks 
+      [userId]="selectedUser ? selectedUser.id : 'Missing User Id'" 
+      [fullName]="selectedUser ? selectedUser.fullName : 'Missing User Name'"
+      />
+  }
+  @else {
+    <p id="fallback"> Select a user to see their task!</p>
+  }
 </main>

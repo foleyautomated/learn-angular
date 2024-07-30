@@ -1,6 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { DUMMY_USERS } from '../dummy-users';
-
+import { Task } from './task.model'
 @Component({
   selector: 'app-task',
   standalone: true,
@@ -9,12 +9,10 @@ import { DUMMY_USERS } from '../dummy-users';
   styleUrl: './task.component.css'
 })
 export class TaskComponent {
-  @Input() fullName?: string;
-  //Can also use:
-  //@Input() name: string | undefined
+ @Input({required: true}) task!: Task;
+ @Output() complete = new EventEmitter<string>();
 
-  onSelectUser(id: string) {
-    console.log(`Task Component Triggered: ${id}`)
-    this.fullName = DUMMY_USERS.find((item) => item.id! == id )?.fullName!
-  }
+ onCompleteTask() {
+    this.complete.emit(this.task.id);
+ }
 }

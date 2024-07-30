@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import { UserComponent } from "./user/user.component";
 import { TaskComponent } from "./task/task.component"
+import { TasksComponent } from "./task/tasks.component"
+
 import { DUMMY_USERS } from './dummy-users';
 
 @Component({
@@ -10,7 +12,7 @@ import { DUMMY_USERS } from './dummy-users';
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
-    imports: [HeaderComponent, UserComponent, TaskComponent]
+    imports: [HeaderComponent, UserComponent, TaskComponent, TasksComponent]
 })
 export class AppComponent {
     users = DUMMY_USERS;
@@ -23,6 +25,5 @@ export class AppComponent {
     onSelectUser(id: string) {
         console.log('Selected User with ID: ' + id);
         this.selectedUserId = id;
-
     }
 }
