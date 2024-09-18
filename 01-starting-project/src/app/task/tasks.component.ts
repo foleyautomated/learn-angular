@@ -30,4 +30,9 @@ export class TasksComponent {
   onStartAddTask(userId: string) {
     this.isAddingTask = true;
   }
+
+  onCancelAddTask() {
+    console.log("tasks/onCancelAddTask")
+    this.isAddingTask = false;
+  }
 }

@@ -17,7 +17,7 @@ export class UserComponent {
 
   @Input({required: true}) user!: User;
   @Input({required: true}) selected!: boolean;
-  @Output() selectEventEmitter = new EventEmitter<string>();
+  @Output() selectUserEventEmitter = new EventEmitter<User>();
 
   get imagePath() {
     return 'assets/users/' + this.user.avatar;
@@ -25,6 +25,6 @@ export class UserComponent {
 
   
   onSelectUser() { 
-    this.selectEventEmitter.emit(this.user.id);
+    this.selectUserEventEmitter.emit(this.user);
   }
 }
